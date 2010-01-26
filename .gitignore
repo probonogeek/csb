@@ -1,0 +1,7 @@
+db/*.sqlite3
+log/*.log
+tmp/**/*
+bin/*
+vendor/gems/*
+!vendor/gems/ruby/1.8/cache/
+
