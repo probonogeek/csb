@@ -9,12 +9,43 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100131010737) do
+ActiveRecord::Schema.define(:version => 20100131072622) do
+
+  create_table "batches", :force => true do |t|
+    t.integer  "style_id"
+    t.string   "volume"
+    t.text     "recipe"
+    t.datetime "brewed_at"
+    t.datetime "ready_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "beers", :force => true do |t|
+    t.integer  "batch_id"
+    t.string   "name"
+    t.string   "slug"
+    t.string   "abv"
+    t.string   "ibu"
+    t.string   "yeast"
+    t.string   "volume"
+    t.text     "tasting_notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "breweries", :force => true do |t|
     t.string   "name"
     t.string   "slug"
     t.datetime "opened_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "styles", :force => true do |t|
+    t.integer  "brewery_id"
+    t.string   "name"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

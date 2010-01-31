@@ -1,4 +1,10 @@
 Csb::Application.routes.draw do |map|
+  resources :beers
+
+  resources :batches
+
+  resources :styles
+
   resources :breweries
 
   # The priority is based upon order of creation:
