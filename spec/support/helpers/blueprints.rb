@@ -1,23 +1,23 @@
 require 'faker'
-require 'sham'
+# require 'sham'
 require 'machinist/active_record'
 
-Sham.name { Faker::Name.name }
-Sham.title { Faker::Lorem.sentence }
-
 Brewery.blueprint do
-  name { Sham.name }
+  name { Faker::Name.name }
 end
 
 Style.blueprint do
-  name { Sham.name }
-  brewery { Brewery.make }
+  name { Faker::Name.name }
+  brewery
 end
 
 Batch.blueprint do
-  style { Style.make }
+  style
+  brewed_at { Time.now }
+  volume { rand(10) }
 end
 
 Beer.blueprint do
-  batch { Batch.make }
+  name { Faker::Name.name }
+  batch
 end

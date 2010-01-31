@@ -4,7 +4,14 @@
 # We're using klass.make in these macros because we're using the machinist
 # gem to create less brittle test data.
 
-def it_validates_presence_of(attribute)
+def it_makes_valid(described_class)
+  it "makes a valid #{described_class.to_s}" do
+    model = described_class.make
+    model.class.should == described_class
+  end
+end
+
+def it_validates_presence_of(attribute,described_class)
   it "validates presence of #{attribute}" do
     lambda do
       invalid_model = described_class.make(attribute => nil)
@@ -12,12 +19,11 @@ def it_validates_presence_of(attribute)
   end
 end
 
-def it_validates_uniqueness_of(attribute)
+def it_validates_uniqueness_of(attribute,described_class)
   it "validates uniqueness of #{attribute}" do
-    unique_value = "UniqueValue#{rand}"
-    first = described_class.make(attribute => unique_value)
+    model = described_class.make
     lambda do
-      described_class.make(attribute => unique_value)
+      described_class.make(attribute => model.__send__( attribute ) )
     end.should raise_error(ActiveRecord::RecordInvalid, /#{attribute.to_s.humanize} has already been taken/)
   end
 end

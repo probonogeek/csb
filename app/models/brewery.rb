@@ -1,8 +1,10 @@
 class Brewery < ActiveRecord::Base
 
   has_many :styles
+  has_many :batches, :through => :styles
 
   validates_presence_of :name
+  validates_presence_of :slug
   validates_format_of :slug, :with => /^[a-z0-9-]+$/
   validates_uniqueness_of :slug
   before_validation :ensure_slug

@@ -4,17 +4,8 @@ describe Style do
 
   describe "validation" do
 
-    it "makes a valid Style" do
-      style = Style.make
-      style.class.should == Style
-    end
-
-#     it_validates_presence_of :name
-    it "validates presence of name" do
-      lambda do
-        invalid_model = Style.make(:name => nil)
-      end.should raise_error(ActiveRecord::RecordInvalid, /#{:name.to_s.humanize} can't be blank/)
-    end
+    it_makes_valid Style
+    it_validates_presence_of :name, Style
 
     it "ensures a valid slug" do
       style = Style.make
@@ -30,16 +21,9 @@ describe Style do
   end
 
   describe "associations" do
-    it "belongs_to brewery" do
-      style = Style.make
-      style.brewery.class.should == Brewery
-    end
-
-    it "has_many batches" do
-      style = Style.make
-      batch = style.batches.make
-      batch.class.should == Batch
-    end
+    it_belongs_to :brewery, Style
+    it_has_many :batches, Style
+    it_has_many_through :beers, :batches, Style
   end
 
 end
