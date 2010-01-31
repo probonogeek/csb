@@ -19,4 +19,6 @@ gem "rspec-rails", "2.0.0.a3"
 # gem "rspec", :only => :test
 only :test do
   gem "webrat"
+  gem "machinist"
+  gem "faker"
 end
