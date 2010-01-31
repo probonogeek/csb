@@ -1,11 +1,11 @@
 Csb::Application.routes.draw do |map|
-  resources :beers
 
-  resources :batches
-
-  resources :styles
-
-  resources :breweries
+  namespace :admin do
+    resources :breweries
+    resources :styles
+    resources :batches
+    resources :beers
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
