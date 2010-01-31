@@ -37,6 +37,8 @@ module Csb
       g.test_framework  :rspec, :fixture => false
     end
 
+    require 'lib/csb/slug.rb'
+
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters << :password
   end

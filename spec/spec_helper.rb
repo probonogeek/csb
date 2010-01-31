@@ -15,6 +15,9 @@ Rspec::Core.configure do |config|
   require 'rspec/expectations'
   config.include Rspec::Matchers
 
+  config.before(:all)    { Sham.reset(:before_all)  }
+  config.before(:each)   { Sham.reset(:before_each) }
+
   # If you're not using ActiveRecord you should remove these
   # lines, delete config/database.yml and disable :active_record
   # in your config/boot.rb
