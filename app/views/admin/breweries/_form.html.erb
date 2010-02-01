@@ -1,0 +1,10 @@
+<% form_for([:admin, @brewery]) do |f| %>
+  <%= f.error_messages %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
