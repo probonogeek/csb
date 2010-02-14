@@ -31,11 +31,11 @@ module Csb
     #   g.test_framework  :test_unit, :fixture => true
     # end
 
-    config.generators do |g|
+#     config.generators do |g|
 #       g.orm             :active_record
 #       g.template_engine :erb
-      g.test_framework  :rspec, :fixture => false
-    end
+#       g.test_framework  :rspec, :fixture => false
+#     end
 
     require 'lib/csb/slug.rb'
 
