@@ -1,4 +1,6 @@
 Csb::Application.routes.draw do |map|
+  resources :users
+
 
   namespace :admin do
     resources :breweries
