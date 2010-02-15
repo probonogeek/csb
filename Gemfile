@@ -5,7 +5,8 @@ gem "rails", "3.0.0.beta"
 gem "rspec-rails", "2.0.0.a6"
 
 ## Bundle the gems you use:
-gem "authlogic"
+# gem "authlogic" # pending new gem
+
 # gem "bj"
 # gem "hpricot", "0.6"
 # gem "sqlite3-ruby", :require_as => "sqlite3"
