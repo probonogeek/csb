@@ -1,4 +1,4 @@
-class Admin::BreweriesController < ApplicationController
+class Admin::BreweriesController < Admin::AdminController
   # GET /admin/breweries
   # GET /admin/breweries.xml
   def index
@@ -44,7 +44,7 @@ class Admin::BreweriesController < ApplicationController
 
     respond_to do |format|
       if @brewery.save
-        format.html { redirect_to(@brewery, :notice => 'Brewery was successfully created.') }
+        format.html { redirect_to([:admin,@brewery], :notice => 'Brewery was successfully created.') }
         format.xml  { render :xml => @brewery, :status => :created, :location => @brewery }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class Admin::BreweriesController < ApplicationController
 
     respond_to do |format|
       if @brewery.update_attributes(params[:brewery])
-        format.html { redirect_to(@brewery, :notice => 'Brewery was successfully updated.') }
+        format.html { redirect_to([:admin,@brewery], :notice => 'Brewery was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -76,7 +76,7 @@ class Admin::BreweriesController < ApplicationController
     @brewery.destroy
 
     respond_to do |format|
-      format.html { redirect_to(breweries_url) }
+      format.html { redirect_to(admin_breweries_url, :notice => 'Brewery was succesfully destroyed.') }
       format.xml  { head :ok }
     end
   end

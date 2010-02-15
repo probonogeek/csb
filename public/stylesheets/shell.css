@@ -1,0 +1,16 @@
+body{
+  background: #EFF;
+}
+
+#container{
+  border: 1px solid black;
+  padding: 5px;
+  margin: auto;
+  margin-top: 30px;
+  width: 960px;
+  background: white;
+}
+
+#user_nav{
+  float: right;
+}

@@ -2,22 +2,32 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
   <head>
-
+    <%= stylesheet_link_tag 'screen' %>
+    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" %>
+    <%= javascript_include_tag "rails-jquery" %>
+    <%= csrf_meta_tag %>
   </head>
 <body>
- <div id="user_nav">
-  <% if current_user %>
-    <%= link_to "Edit Profile", edit_user_path(:current) %>
-    <%= link_to "Logout", logout_path %>
-  <% else %>
-    <%= link_to "Register", new_user_path %> |
-    <%= link_to "Login", login_path %>
-  <% end %>
- </div>
+  <div id="container">
 
- <%- flash.each do |name,msg| -%>
-   <%= content_tag :div, msg, :id => "flash_#{name}" %>
- <%- end -%>
+    <div id="user_nav">
+      <% if current_user %>
+        <%= link_to "Edit Profile", edit_user_path(:current) %> |
+        <%= link_to "Administration", admin_path %> |
+        <%= link_to "Logout", logout_path %>
+      <% else %>
+        <%= link_to "Register", new_user_path %> |
+        <%= link_to "Login", login_path %>
+      <% end %>
+    </div>
+
+    <%- flash.each do |name,msg| -%>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <%- end -%>
+
+    <%= yield %>
+
+  </div>
 
 </body>
 </html>
