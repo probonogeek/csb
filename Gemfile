@@ -2,7 +2,7 @@
 source "http://gemcutter.org"
 
 gem "rails", "3.0.0.beta"
-gem "rspec-rails", "2.0.0.a6"
+gem "rspec-rails", "2.0.0.beta.2"
 
 ## Bundle the gems you use:
 # gem "authlogic" # pending new gem
@@ -15,6 +15,10 @@ gem "rspec-rails", "2.0.0.a6"
 ## Bundle gems used only in certain environments:
 # gem "rspec", :only => :test
 group :test do
+  gem "cucumber-rails"
+  gem 'capybara'
+  gem 'database_cleaner'
+
   gem "webrat"
   gem "machinist"
   gem "faker"

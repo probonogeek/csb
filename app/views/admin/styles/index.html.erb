@@ -1,0 +1,22 @@
+<h1>Manage Styles</h1>
+
+<ul>
+  <% @breweries.each do |brewery| %>
+    <li>
+      <%= brewery.name %>
+      <ul>
+        <% brewery.styles.each do |style| %>
+          <li>
+            <%= style.name %> --
+            <%= link_to 'Show', admin_style_path(style) %> |
+            <%= link_to 'Edit', edit_admin_style_path(style) %> |
+            <%= link_to 'Destroy', admin_style_path(style), :confirm => 'Are you sure?', :method => :delete %>
+          </li>
+        <% end %>
+        <li><%= link_to 'New Style', new_admin_style_path %></li>
+      </ul>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Administration', admin_path %>

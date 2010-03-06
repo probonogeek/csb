@@ -1,22 +1,15 @@
 <h1>Listing breweries</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<ul>
+  <% @breweries.each do |brewery| %>
+    <li>
+      <%= brewery.name %> -
+      <%= link_to 'Show', admin_brewery_path(brewery) %> |
+      <%= link_to 'Edit', edit_admin_brewery_path(brewery) %> |
+      <%= link_to 'Destroy', admin_brewery_path(brewery), :confirm => 'Are you sure?', :method => :delete %>
+    </li>
+  <% end %>
+</ul>
 
-<% @breweries.each do |brewery| %>
-  <tr>
-    <td><%= brewery.name %></td>
-    <td><%= link_to 'Show', admin_brewery_path(brewery) %></td>
-    <td><%= link_to 'Edit', edit_admin_brewery_path(brewery) %></td>
-    <td><%= link_to 'Destroy', admin_brewery_path(brewery), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New brewery', new_admin_brewery_path %>
+<%= link_to 'New Brewery', new_admin_brewery_path %> |
+<%= link_to 'Administration', admin_path %>

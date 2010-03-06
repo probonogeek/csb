@@ -1,0 +1,30 @@
+<% form_for([:admin, @batch]) do |f| %>
+  <%= f.error_messages %>
+
+<p>
+  <%= f.label :style_id, "Style" %>
+  <%= f.collection_select :style_id, Style.all, :id, :label, {:prompt => true}  %>
+</p>
+<p>
+  <%= f.label :volume %>
+  <%= f.text_field :volume %>
+</p>
+<p>
+  <%= f.label :recipe %>
+  <%= f.text_area :recipe %>
+</p>
+<p>
+  <%= f.label :brewed_at %>
+  <%= f.date_select :brewed_at %>
+</p>
+<p>
+  <%= f.label :ready_at %>
+  <%= f.date_select :ready_at %>
+</p>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

@@ -12,4 +12,8 @@ class Style < ActiveRecord::Base
     self.slug = Csb::Slug::generate(name, '-') if slug.nil?
   end
 
+  def label
+    "#{brewery.name}: #{name}"
+  end
+
 end

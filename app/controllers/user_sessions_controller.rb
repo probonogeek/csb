@@ -4,6 +4,7 @@ class UserSessionsController < ApplicationController
   # GET /user_sessions/new.xml
   def new
     @user_session = UserSession.new
+    @page_title = "Login"
 
     respond_to do |format|
       format.html # new.html.erb
