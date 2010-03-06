@@ -1,3 +1,11 @@
 <h1>Batch of <%= @batch.style.name %></h1>
+<h2>Brewed at</h2>
+<p><%= @batch.brewed_at.to_s(:mdy) %></p>
+<h2>Ready at</h2>
+<p><%= @batch.ready_at.to_s(:mdy) %></p>
+<h2>Volume</h2>
+<p><%= @batch.volume %></p>
+<h2>Recipe</h2>
+<p><%= @batch.recipe %></p>
 
-<%= link_to 'Back', admin_breweries_path %>
+<%= link_to 'Back', admin_style_path( @batch.style ) %>

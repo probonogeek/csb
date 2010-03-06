@@ -16,4 +16,9 @@ class Style < ActiveRecord::Base
     "#{brewery.name}: #{name}"
   end
 
+  def self.find_by_brewery_style_label( brewery_style_label )
+    (brewery_name, style_name) = brewery_style_label.split(': ')
+    Brewery.find_by_name( brewery_name ).styles.find_by_name( style_name )
+  end
+
 end

@@ -21,6 +21,10 @@ module NavigationHelpers
 #       "/admin/batches/#{Batch.last.id}"
       admin_batch_path( Batch.last )
 
+    when /the (.*?) show page/
+      admin_style_path( Style.find_by_brewery_style_label($1))
+
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

@@ -1,5 +1,8 @@
 <h1><%= @style.name %></h1>
-
-
+<ul>
+<% @style.batches.each do |batch|%>
+  <li><%= link_to batch.brewed_at.to_s(:mdy), admin_batch_path(batch) %></li>
+<% end %>
+</ul>
 <%= link_to 'Edit', edit_admin_style_path(@style) %> |
 <%= link_to 'Back', admin_styles_path %>
